@@ -1,6 +1,7 @@
 import sys
 from pathlib import Path
-sys.path.append(str(Path(__file__).resolve().parents[2]))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+#sys.path.append(str(Path(__file__).resolve().parents[2]))
 import streamlit as st
 import json
 from apps.api.nlp.parse_pdf import parse_pdf_to_sections
@@ -10,7 +11,7 @@ from apps.api.core.config import settings
 from apps.api.features.multi_doc_comparison import MultiDocComparator
 from apps.api.features.meta_analysis import MetaAnalysisExtractor
 from apps.api.features.pdf_exporter import PDFReportGenerator
-
+from apps.web import app
 st.set_page_config(page_title="Medical Research Intelligence System", page_icon="🧪", layout="wide")
 st.title("🧪 Medical Research Intelligence System v2.0")
 st.caption("Upload PDFs → Parse → Ask questions → Compare → Export Reports")
